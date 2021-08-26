@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Enem</title>
+</head>
+<body>
+    <!--Ciências da Natureza e suas Tecnologias; Ciências Humanas e suas Tecnologias; Linguagens, Códigos e suas Tecnologias; Matemática e suas Tecnologias) incluindo a redação-->
+    <h1>Calculadora Enem</h1>
+
+    <fieldset>
+        <div class="bloco_interativo">
+            <label for="">
+                Linguagens, Códigos e suas Tecnologias:
+                <br>
+                <input type="number" name="LCT" id="LCT">
+            </label>
+        </div>
+        <div class="bloco_interativo">
+            <label for="">Ciências Humanas e suas Tecnologias: </label>
+            <br>
+            <input type="number" name="CHT" id="CHT">
+        </div>
+
+        <div class="bloco_interativo">
+            <label for="">Ciências da Natureza e suas Tecnologias:</label>
+            <br>
+            <input type="number" name="CNT" id="CNT">
+        </div>
+
+        <div class="bloco_interativo">
+            <label for="">Matemática e suas Tecnologias:</label>
+            <br>
+            <input type="number" name="MT" id="MT">
+        </div>
+
+        <div class="bloco_interativo">
+            <label for="">Redação:</label>
+            <br>
+            <input type="number" name="Redação" id="Redação">
+        </div>
+        <div class="bloco_enviar">
+            <br>
+            <input type="submit" value="Calcular" onclick="Calcular()">
+        </div>
+    </fieldset>
+
+    <div class="Resultado" style="border: 1px solid black; height: 200px; width: auto;">
+        <h2 id="Resultado">Resultado:</h2>
+    </div>
+    <script>
+
+        //console.log(LCT.value)
+        /*
+        let cHT = document.get
+        let CNT 
+        let MT = document
+        let Redação
+        */
+        let Resultado = document.getElementById("Resultado")
+    
+        function Calcular(){
+            let LCT = document.getElementById('LCT').value
+            let CHT = document.getElementById('CHT').value
+            let CNT = document.getElementById('CNT').value
+            let MT = document.getElementById('MT').value
+            let Redação = document.getElementById('Redação').value
+
+
+            Lista_Number = [LCT, CHT, CNT, MT, Redação]
+            
+            //Transforma os dados pegos em *Number.
+            Map_num_list = Lista_Number.map(elemento => Number(elemento))
+
+            //Faz o calculo da média: (LCT + CHT + CNT + MT + Redação) / 5
+            let Teste = Map_num_list.reduce((ant, elemento) => ant + elemento, 0) / Map_num_list.length
+
+            //Mostra o resultado no navegador.
+            Resultado.innerText = `Resultado: ${Teste}`
+        }
+    </script>
+</body>
+</html>
